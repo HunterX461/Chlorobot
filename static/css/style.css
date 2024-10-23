@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+main {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+section {
+  margin-bottom: 40px;
+}
+label {
+  font-weight: bold;
+}
+input[type="file"], input[type="text"], button {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #0056b3;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
