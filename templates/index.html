@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PicSpeak</title>
+    <title>ChloroBot</title>
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/background.css">
+    <link rel="stylesheet" href="/static/css/character.css">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 </head>
 <body>
+    <video id="bg-video" autoplay loop muted>
+        <source src="/static/videos/background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="character-container">
+        <video id="character-video" autoplay loop muted>
+            <source src="/static/videos/cursor.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <div id="chat-cloud" class="hidden">
+            <input type="file" id="imageFile" name="image" accept="image/*" hidden>
+            <button id="uploadBtn">Upload Image</button>
+            <div id="processing" class="hidden">Processing...</div>
+        </div>
+    </div>
+
     <header>
-        <h1>PicSpeak: The Image Recognizing Wizard</h1>
+        <h1 class="heading">ChloroBot: The AI Botanist</h1>
     </header>
 
-    <main>
-        <section id="upload-section">
-            <form id="uploadForm">
-                <label for="imageFile">Upload an Image</label>
-                <input type="file" id="imageFile" name="image" accept="image/*">
-                <button type="submit">Upload Image</button>
-            </form>
-            <div id="detectedObjects"></div>
-        </section>
-
-        <section id="question-section">
-            <input type="text" id="question" placeholder="Ask a question about the image">
-            <button id="askBtn">Ask</button>
-            <div id="response"></div>
-        </section>
-    </main>
+    <div id="detectedObjects"></div> <!-- Added for displaying detected objects -->
 
     <footer>
-        <p>© 2024 PicSpeak. All rights reserved.</p>
+        <p>© 2024 ChloroBot. All rights reserved.</p>
     </footer>
 
     <script src="/static/js/script.js"></script>
 </body>
 </html>
-

@@ -1,54 +1,59 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
-  color: #333;
-  margin: 0;
-  padding: 0;
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
 }
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place behind other elements */
+}
+
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
+    position: absolute;
+    top: 20px; /* Adjust this to move it down */
+    left: 20px; /* Align to the left */
+    z-index: 1; /* Bring it above the video */
 }
-main {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
+
+.heading {
+    font-size: 3em;
+    color: darkgreen;
+    text-align: left; /* Align text to the left */
+    position: relative; /* For positioning the leaf design */
 }
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+
+.heading::before, .heading::after {
+    content: '🍃'; /* Leaf emoji as a decorative element */
+    font-size: 1.5em; /* Adjust size as needed */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Center vertically */
 }
-section {
-  margin-bottom: 40px;
+
+.heading::before {
+    left: -30px; /* Position left leaf */
 }
-label {
-  font-weight: bold;
+
+.heading::after {
+    right: -30px; /* Position right leaf */
 }
-input[type="file"], input[type="text"], button {
-  display: block;
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 400px;
+
+#upload-section, #question-section {
+    position: relative; /* Maintain position for sections */
+    z-index: 1; /* Bring sections above video */
 }
-button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #0056b3;
-}
+
 footer {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    z-index: 1; /* Bring footer above video */
 }

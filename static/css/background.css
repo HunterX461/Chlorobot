@@ -1,0 +1,53 @@
+/* Fullscreen background video without black stripes */
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Ensures the video covers the entire screen */
+    z-index: -1; /* Send it behind other elements */
+}
+
+/* Styling for character video */
+#character-video {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 150px;
+    height: auto;
+    z-index: 1;
+}
+
+/* Header styling */
+header h1 {
+    color: darkgreen; /* Dark green for the project title */
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    margin: 20px;
+}
+
+/* Footer (hidden by default) */
+footer {
+    display: none; /* Optional: Hide footer unless needed */
+}
+
+/* Main layout */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Upload section styling */
+#upload-section {
+    margin-top: 10px;
+}
+
+#question-section {
+    margin-top: 20px;
+}
