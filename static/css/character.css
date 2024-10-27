@@ -10,10 +10,22 @@
 #character-video {
     width: 100%; /* Adjust to the desired size */
 }
+#drop-area {
+    border: 2px dashed darkgreen;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+    cursor: pointer; /* Show a pointer cursor on hover */
+}
+
+#drop-area.hover {
+    border-color: green; /* Change border color on hover */
+}
 
 #chat-cloud {
     position: absolute;
-    bottom: 20%; /* Position above the character */
+    bottom: 70%; /* Position above the character */
     left: 90%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */

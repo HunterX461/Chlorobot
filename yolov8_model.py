@@ -1,12 +1,15 @@
 from ultralytics import YOLO
 from PIL import Image, ImageDraw
-import numpy as np
 import os
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 # Load YOLOv8 model
 model = YOLO('yolov8s.pt')
 
-def detect_objects(image_path: str, conf_threshold: float = 0.5):
+def detect_objects(image_path: str, conf_threshold: float = 0.2):
     """Detect objects in the given image and return their names."""
     try:
         # Load the input image
@@ -36,8 +39,13 @@ def detect_objects(image_path: str, conf_threshold: float = 0.5):
         annotated_path = os.path.join("temp", "annotated_image.jpg")
         original_image.save(annotated_path)
 
+        logging.info(f"Detected objects: {detected_objects}")
         return detected_objects
 
+    except FileNotFoundError as e:
+        logging.error(f"File not found: {image_path}")
+        raise e  # Re-raise to be handled in the main API
+
     except Exception as e:
-        print(f"Error in detect_objects: {str(e)}")
-        raise  # Re-raise the exception for handling in main.py
+        logging.error(f"Error in detect_objects: {str(e)}")
+        raise e  # Re-raise to be handled in main.py

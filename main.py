@@ -55,14 +55,21 @@ async def upload_image(file: UploadFile = File(...)):
         with open(file_location, "wb") as f:
             f.write(file.file.read())
 
+        logging.info(f"Uploaded image saved at: {file_location}")
+
         # Detect objects in the uploaded image
         objects_detected = detect_objects(file_location)
-
         logging.info(f"Objects detected: {objects_detected}")
+
+        # Handle case where no objects are detected
+        if not objects_detected:
+            return JSONResponse(content={"message": "No objects detected."}, status_code=200)
+
         return {"objects_detected": objects_detected}
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logging.error(f"Error processing image: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal Server Error")
 
     finally:
         # Clean up: Remove the uploaded image after processing
@@ -78,5 +85,6 @@ async def ask_question(request: QuestionRequest):
     if not request.question.strip():
         raise HTTPException(status_code=400, detail="Question cannot be empty.")
 
+    # Generate a response based on the detected objects and the user's question
     response = generate_response(request.objects, request.question)
     return JSONResponse(content={"response": response})

@@ -21,9 +21,18 @@
             Your browser does not support the video tag.
         </video>
         <div id="chat-cloud" class="hidden">
-            <input type="file" id="imageFile" name="image" accept="image/*" hidden>
+            <input type="file" id="imageFile" name="image" accept="image/*" style="display: none;">
+            <div id="drop-area">
+                <p>Drag & Drop an image here or <span id="file-upload-text" style="color: blue; cursor: pointer;">click to select</span></p>
+            </div>
             <button id="uploadBtn">Upload Image</button>
-            <div id="processing" class="hidden">Processing...</div>
+            <div id="loadingAnimation" class="hidden">Processing...</div>
+            <div id="detectedObjectsCloud" class="hidden"></div> <!-- Unique ID for detected objects -->
+
+            <!-- Question Input and Ask Button (only one instance) -->
+            <input type="text" id="questionInput" class="question-input" placeholder="Ask a question about the image...">
+            <button id="askButton" class="ask-button">Ask</button>
+            <div id="response" class="hidden"></div> <!-- Container for chatbot responses -->
         </div>
     </div>
 
@@ -31,7 +40,7 @@
         <h1 class="heading">ChloroBot: The AI Botanist</h1>
     </header>
 
-    <div id="detectedObjects"></div> <!-- Added for displaying detected objects -->
+    <div id="detectedObjects"></div> <!-- Original detected objects div -->
 
     <footer>
         <p>© 2024 ChloroBot. All rights reserved.</p>
